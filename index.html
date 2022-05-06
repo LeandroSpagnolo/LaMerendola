@@ -5,7 +5,11 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheetCustom" href="style.css" >
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+    .mySlides {display:none;}
+    </style>
     <style>
       .w3-theme-l5 {color:#000 !important; background-color:#fbfaf8 !important}
       .w3-theme-l4 {color:#000 !important; background-color:#f2eee8 !important}
@@ -17,40 +21,77 @@
       .w3-theme-d3 {color:#fff !important; background-color:#957954 !important}
       .w3-theme-d4 {color:#fff !important; background-color:#7f6848 !important}
       .w3-theme-d5 {color:#fff !important; background-color:#6a573c !important}
+      .w3-theme-l6 {color:#000 !important; background-color:#393d3f !important}
+      .w3-theme-l7 {color:#000 !important; background-color:#fdfdff !important}
+      .w3-theme-l8 {color:#000 !important; background-color:#c6c5b9 !important}
+      .w3-theme-l9 {color:#000 !important; background-color:#62929e !important}
+      .w3-theme-l10 {color:#000 !important; background-color:#546a7b !important}
     </style>
 
 </head>
 
-<body class = "w3-theme-l2" >
+<body class = "w3-theme-l8" >
 
     <header class="w3-animate-top">
-
-        <div class="w3-bar">
-            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:20%">Inicio</a>
-            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:20%">Nosotros</a>
-            <a href="#" class="w3-bar-item w3-button w3-mobile" style="width:20%">
+      <div class="w3-bar">
+        <a href="#" class="w3-bar-item " style="width:10%"></a>
+      <a href="#" class="w3-bar-item " style="width:20%">
+        <div class="w3-content w3-section" style="max-width:500px">
+          <img class="mySlides" src="img/uno.jpg" style="width:100%">
+          <img class="mySlides" src="img/dos.jpeg" style="width:100%">
+          
+        </div>
+        
+        <script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+        </script></a>
+        <a href="#" class="w3-bar-item " style="width:10%"></a>
+      <a href="#" class=" w3-center w3-button w3-mobile" style="width:20%; height: 300px">
             
-              <img src="img/logo_7-modified.png" class="w3-round" alt="logoMerendola" width="200px">
-              
-          </a>
-            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:20%">Ingresar</a>
-            <i class= " w3-padding  fa fa-search w3-bar-item w3-button w3-mobile w3-xlarge w3-theme-d1 " style = " height: 39px; width: 4%;"></i>
+        <img src="img/LOGOMERENDOLA.png" class="w3-round" alt="logoMerendola" width="60%">
+        
+    </a>
+     
+    
+  </div>
+    
+        <div class="w3-bar">
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:25%">Inicio</a>
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:25%">Nosotros</a>
+          
+            <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d3" style="width:25%">Ingresar</a>
+            <i class= " w3-padding  fa fa-search w3-bar-item w3-button w3-mobile w3-xlarge w3-theme-d2 " style = " height: 39px; width: 5%;"></i>
             <form class="w3-mobile">
-              <input classs = " w3-input " type="search" style="width:16%; height: 39px; background-color: #b39a78">
+              <input classs = " w3-input " type="search" style="width:20%; height: 39px; background-color: #957954">
             </form>
         </div>
 
     </header>
     <br>
+    <br>
+    <br>
     
+   
 
-    <div class="w3-container ">
+    <div class="w3-container w3-center ">
       <h2 class = "w3-center w3-theme-d5 w3-xxlarge w3-border w3-round-xlarge">Lista de lugares</h2>
       <br>
-      <div class="w3-bar ">
-        
-        <div class="w3-card w3-bar-item" style="width:20%">
-          <img src="img/caferegistrado.png" alt="Alps" style="width:100%">
+      <div class="w3-bar w3-row-padding " >
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left w3-margin-right" style="width:15%">
+          <img src="img/caferegistrado-removebg-preview.png" alt="Alps" style="width:100%">
           
           <div class="w3-container w3-center w3-theme-d5 ">
             <span class="w3-large">Cafe resgistrado</span><br>
@@ -61,10 +102,12 @@
           </div>
           <br>
         </div>
-      
+        
+       
   
-        <div class="w3-card w3-bar-item" style="width:20%">
-          <img src="img/amelie.jpg" alt="Alps" style="width:100%">
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left w3-margin-right " style="width:15%">
+         
+          <img src="img/amelie-removebg-preview.png" alt="Alps" style="width:100%">
           
           <div class="w3-container w3-center w3-theme-d5 ">
             <span class="w3-large">Amelie</span><br>
@@ -77,8 +120,8 @@
         </div>
         
   
-        <div class="w3-card w3-bar-item" style="width:20%">
-          <img src="img/tea connection.png" alt="Alps" style="width:100%">
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left w3-margin-right" style="width:15%">
+          <img src="img/tea_connection-removebg-preview.png" alt="Alps" style="width:100%">
           
           <div class="w3-container w3-center w3-theme-d5 ">
             <span class="w3-large">Tea Connection</span><br>
@@ -90,8 +133,8 @@
           <br>
         </div>
 
-        <div class="w3-card w3-bar-item" style="width:20%">
-          <img src="img/cairo.png" alt="Alps" style="width:100%">
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left w3-margin-right" style="width:15%">
+          <img src="img/cairo-removebg-preview.png" alt="Alps" style="width:100%">
           
           <div class="w3-container w3-center w3-theme-d5 ">
             <span class="w3-large">El Cairo</span><br>
@@ -103,8 +146,8 @@
           <br>
         </div>
 
-        <div class="w3-card w3-bar-item" style="width:20%">
-          <img src="img/tostado.jpeg" alt="Alps" style="width:100%">
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left w3-margin-right" style="width:15%">
+          <img src="img/tostado-removebg-preview.png" alt="Alps" style="width:100%">
           
           <div class="w3-container w3-center w3-theme-d5 ">
             <span class="w3-large">Tostado Café Club</span><br>
@@ -116,84 +159,24 @@
           <br>
         </div>
 
-      </div>
-
-      <div class="w3-container ">
-        
-        <br>
-        <div class="w3-bar ">
+        <div class="w3-card w3-bar-item  w3-theme-d1 w3-margin-left  " style="width:15%">
+          <img src="img/Screenshot_6-removebg-preview.png" alt="Alps" style="width:100%">
           
-          <div class="w3-card w3-bar-item" style="width:20%">
-            <img src="img/caferegistrado.png" alt="Alps" style="width:100%">
-            
-            <div class="w3-container w3-center w3-theme-d5 ">
-              <span class="w3-large">Cafe resgistrado</span><br>
-                  <span>Direccion:</span><br>
-                  <span>Puntaje:</span><br>
-                  <span>Precios:</span><br>
-                  <span>Etiquetas:</span><br>
-            </div>
-            <br>
+          <div class="w3-container w3-center w3-theme-d5 ">
+            <span class="w3-large">Café Martinez</span><br>
+                <span>Direccion:</span><br>
+                <span>Puntaje:</span><br>
+                <span>Precios:</span><br>
+                <span>Etiquetas:</span><br>
           </div>
-        
-    
-          <div class="w3-card w3-bar-item" style="width:20%">
-            <img src="img/amelie.jpg" alt="Alps" style="width:100%">
-            
-            <div class="w3-container w3-center w3-theme-d5 ">
-              <span class="w3-large">Amelie</span><br>
-                  <span>Direccion:</span><br>
-                  <span>Puntaje:</span><br>
-                  <span>Precios:</span><br>
-                  <span>Etiquetas:</span><br>
-            </div>
-            <br>
-          </div>
-          
-    
-          <div class="w3-card w3-bar-item" style="width:20%">
-            <img src="img/tea connection.png" alt="Alps" style="width:100%">
-            
-            <div class="w3-container w3-center w3-theme-d5 ">
-              <span class="w3-large">Tea Connection</span><br>
-                  <span>Direccion:</span><br>
-                  <span>Puntaje:</span><br>
-                  <span>Precios:</span><br>
-                  <span>Etiquetas:</span><br>
-            </div>
-            <br>
-          </div>
-  
-          <div class="w3-card w3-bar-item" style="width:20%">
-            <img src="img/cairo.png" alt="Alps" style="width:100%">
-            
-            <div class="w3-container w3-center w3-theme-d5 ">
-              <span class="w3-large">El Cairo</span><br>
-                  <span>Direccion:</span><br>
-                  <span>Puntaje:</span><br>
-                  <span>Precios:</span><br>
-                  <span>Etiquetas:</span><br>
-            </div>
-            <br>
-          </div>
-  
-          <div class="w3-card w3-bar-item" style="width:20%">
-            <img src="img/tostado.jpeg" alt="Alps" style="width:100%">
-            
-            <div class="w3-container w3-center w3-theme-d5 ">
-              <span class="w3-large">Tostado Café Club</span><br>
-                  <span>Direccion:</span><br>
-                  <span>Puntaje:</span><br>
-                  <span>Precios:</span><br>
-                  <span>Etiquetas:</span><br>
-            </div>
-            <br>
-          </div>
-  
+          <br>
         </div>
 
+      </div>
     </div>
 
+         
+    
     <br>
     <br>
     <br>
