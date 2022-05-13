@@ -10,7 +10,7 @@
 .w3-theme-d4 {color:#fff !important; background-color:#7f6848 !important}
 .w3-theme-d5 {color:#fff !important; background-color:#6a573c !important}
 .w3-theme-l8 {color:#000 !important; background-color:#c6c5b9 !important}
-
+.mySlides {display:none;}
 
 
 .botones{
@@ -28,10 +28,6 @@
   height:500px
 }
 
-.cartas{
-  width:15%; 
-  height: 350px;
-}
 
 .imagenesCartas{
   width:100%;
@@ -41,10 +37,22 @@
   height: 150px
 }
 
-.imagenes{
-  width:30%; 
-  height:300px;
-  margin-left: 2%;
+
+.grid-container {
+  display: grid;
+  column-gap: 1%;
+  grid-template-columns: 15% 15% 15% 15% 15% 15%;
+  row-gap: 1%;
+  flex-wrap: wrap;
+	justify-content: center;
+}
+
+.grid-item {
+  
+}
+
+.grid-img{
+  width: 100%;
 }
 
 
