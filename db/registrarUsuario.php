@@ -12,11 +12,13 @@ $conn = new mysqli($HOST,$USER,$PASS,$BASE);
 
 //checkear la conexion
 $conn = new mysqli($HOST,$USER,$PASS,$BASE);
-if($conn->connect_error){
+if($conn->connect_error)
+{
 	echo "$conn->connect_error";
 	die("Connection Failed : ". $conn->connect_error);
 }
-else{
+else
+{
 	$stmt = $conn->prepare("insert into credencialesUsuarios(nombre, contraseña, email) values(?, ?, ?)");
 	$stmt->bind_param("sss",$nombreUsuario,$contraseñaUsuario,$emailUsuario);
 	$execval = $stmt->execute();
