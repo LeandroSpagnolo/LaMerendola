@@ -10,8 +10,7 @@ $emailUsuario = $_POST['email'];
 //Conectarse a la base de datos
 $conn = new mysqli($HOST,$USER,$PASS,$BASE);
 
-//checkear la conexion
-$conn = new mysqli($HOST,$USER,$PASS,$BASE);
+
 if($conn->connect_error)
 {
 	echo "$conn->connect_error";
