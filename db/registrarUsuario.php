@@ -1,29 +1,29 @@
 <?php
 
-include "credenciales.inc";
+    //En este archivo php nos encargaremos de añadir un nueva tarea
+    //en nuestra base de datos.
 
-//Datos colocados por el usuario
-$nombreUsuario = $_POST['user'];
-$contraseñaUsuario = $_POST['contraseña'];
-$emailUsuario = $_POST['email'];
+    include('database.php');
 
-//Conectarse a la base de datos
-$conn = new mysqli($HOST,$USER,$PASS,$BASE);
+    $name = $_POST['nombreUsuario'];
+    $password = $_POST['contraseñaUsuario'];
+	$email = $_POST['emailUsuario'];
 
+    //isset: determina si una variable está definida y no es null.
+    if (isset($name) && isset($password) && isset($email)) {
+        //Con real_escape_string evitamos inyección SQL.
+        $name = $connection->real_escape_string($name);
+        $password = $connection->real_escape_string($password);
+		$email = $connection->real_escape_string($email);
+        if (!empty($name) && !empty($password) && !empty($email)) {
+            $query = "INSERT into credencialesUsuarios(nombre, contraseña, email) VALUES ('$name', '$password', '$email')";
+            $result = mysqli_query($connection, $query);
 
-if($conn->connect_error)
-{
-	echo "$conn->connect_error";
-	die("Connection Failed : ". $conn->connect_error);
-}
-else
-{
-	$stmt = $conn->prepare("insert into credencialesUsuarios(nombre, contraseña, email) values(?, ?, ?)");
-	$stmt->bind_param("sss",$nombreUsuario,$contraseñaUsuario,$emailUsuario);
-	$execval = $stmt->execute();
-	echo $execval;
-	echo "Registration successfully...";
-	$stmt->close();
-	$conn->close();
-}
+            if(!$result) {
+                die('Query Error'. msqli_error($connection));    
+            }
+
+            echo "Task Added Successfully";
+        }      
+    }
 ?>
