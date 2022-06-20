@@ -1,29 +1,43 @@
 <?php
+include_once "connect.php";
 
-    //En este archivo php nos encargaremos de añadir un nueva tarea
-    //en nuestra base de datos.
+//session_start();
 
-    include('database.php');
+$userEmail=mysqli_real_escape_string($conn, $_POST['email']);
 
-    $name = $_POST['nombreUsuario'];
-    $password = $_POST['contraseñaUsuario'];
-	$email = $_POST['emailUsuario'];
+if(!filter_var($userEmail, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(array('success' => false, 'error' => 'invalid mail'));
+} else {
 
-    //isset: determina si una variable está definida y no es null.
-    if (isset($name) && isset($password) && isset($email)) {
-        //Con real_escape_string evitamos inyección SQL.
-        $name = $connection->real_escape_string($name);
-        $password = $connection->real_escape_string($password);
-		$email = $connection->real_escape_string($email);
-        if (!empty($name) && !empty($password) && !empty($email)) {
-            $query = "INSERT into credencialesUsuarios(nombre, contraseña, email) VALUES ('$name', '$password', '$email')";
-            $result = mysqli_query($connection, $query);
-
-            if(!$result) {
-                die('Query Error'. msqli_error($connection));    
-            }
-
-            echo "Task Added Successfully";
-        }      
+    $mail_check = $conn->query("SELECT * FROM `usuarios` WHERE correo='".$userEmail."' OR nuevocorreo='".$userEmail."' ");
+    if($mail_check->num_rows > 0) {
+        echo json_encode(array('success' => false, 'error' => 'mail already used'));
+        $conn->close();
+        die();
     }
-?>
+
+    if($_POST['psw']==$_POST['psw-repeat']){
+        $userPassword=password_hash($_POST['psw'], PASSWORD_DEFAULT);
+
+        $hash = md5( rand(0,1000) );
+        $time = time();
+        $date = date('Y-m-d H:i:s', $time);
+        $sql = "INSERT INTO usuarios (correo, passhash, activo, baneado, verifhash, logins, lastlogin) VALUES ('".$userEmail."', '".$userPassword."', 0, 0, '".$hash."', 1, '".$date."')";
+
+        include "sendEmail.php";
+
+        if ($conn->query($sql) === TRUE) {
+            //$_SESSION['user_name'] = $userEmail;
+            echo json_encode(array('success' => true));
+        } else {
+            echo json_encode(array('success' => false, 'error' => $sql.$conn->error));
+        }
+
+    } else {
+        echo json_encode(array('success' => false, 'error' => 'different passwords'));
+    }
+
+}
+
+
+$conn->close();
