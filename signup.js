@@ -32,9 +32,6 @@ $( document ).ready(function() {
                 });
                 //login successful
             } else {
-                if(json['error'] == 'different passwords') {
-                    alert('Las contraseñas no coinciden.');
-                }
                 if(json['error'] == 'mail already used') {
                     alert('El correo electronico ya está en uso.');
                 }

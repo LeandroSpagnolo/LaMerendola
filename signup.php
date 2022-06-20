@@ -19,13 +19,15 @@ if(!filter_var($emailUsuario, FILTER_VALIDATE_EMAIL)){
         die();
     }
 
+    if($_POST['contrasenaUsuario']==$_POST['contrasenaUsuario']){
+        //$userPassword=password_hash($_POST['psw'], CRYPT_BLOWFISH);
+        $userPassword=hash('sha256', $_POST['contrasenaUsuario']);
 
-    //Deberiamos hacer un hash de la contrasena
-
-    $sql = "INSERT INTO credencialesUsuarios (nombre, contrasena, email) VALUES ( '".$nombreUsuario."','".$contrasenaUsuario."','".$emailUsuario."')";
-
-
-    //Aca tendria que ir lo de mandar mails y esas cosas
+        $time = time();
+        $date = date('Y-m-d H:i:s', $time);
+        $sql = "INSERT INTO credencialesUsuarios (nombre, contrasena, email, ban, creacionDeCuenta, ultimaVezActivo, cuentaVerificada) VALUES ( '".$nombreUsuario."','".$userPassword."','".$emailUsuario."',0,'".$date."','".$date."',0 )";
+        
+    include "sendEmail.php";
 
     if($conn->query($sql) == TRUE){
         echo json_encode(array('success' => true));
@@ -34,7 +36,7 @@ if(!filter_var($emailUsuario, FILTER_VALIDATE_EMAIL)){
         echo json_encode(array('success' => false, 'error' => $sql.$conn->error));
     }
 
-
+    }
 
 }
 $conn->close();
