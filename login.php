@@ -6,10 +6,15 @@ $nombreUsuario = mysqli_real_escape_string($conn, $_POST['nombreUsuario']);
 $contra = mysqli_real_escape_string($conn, $_POST['contrasenaUsuario']);
 $contrasenaUsuario = hash('sha256', $contra);
 
-$seConecta = $conn->query("SELECT * FROM `credencialesUsuarios` WHERE nombre='".$nombreUsuario."' AND contrasena='".$contrasenaUsuario."'");
-if($seConecta->num_row == 1)
+$sql = $conn->query("SELECT * FROM `credencialesUsuarios` WHERE nombre='".$user."' AND contrasena='".$contrasenaUsuario."' AND cuentaVerificada=1 AND Ban=0 ");
+
+if($sql->num_rows > 0){
+
     echo json_encode(array('success' => true));
-if($seConecta->num_row == 0)
-    echo json_encode(array('failed' => false, 'error' => 'No existis bichito' ));
+
+}
+else{
+    echo json_encode(array('success' => false, 'error' => 1));
+}
 
 $conn->close();
