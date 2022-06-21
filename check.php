@@ -16,7 +16,7 @@ if(isset($_GET['user']) && !empty($_GET['user']) AND isset($_GET['email']) && !e
         echo '<div class="statusmsg">Tu cuenta está activada, ya puedes iniciar sesión</div>';
         session_start();
         $_SESSION['user_name'] = $user;
-        header('Location: ../CUATRO/index.html');
+        header('Location: ../CUATRO/verifyAccount.html');
     }else{
         // Error
         //echo '<div class="statusmsg">La url es inválida o ya has registrado tu cuenta</div>';
