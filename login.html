@@ -11,23 +11,45 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>    
 </head>
-<body>
+<body class = "w3-theme-l8">
+    <header class="w3-animate-top">
+        <div class="w3-bar">
+            <a href="index.html" class="centrar w3-center w3-mobile" style="width:20%; height: 100%">
+              <img src="img/LOGOMERENDOLA.png" class="w3-round" alt="logoMerendola" style="width:60%">
+            </a>
+          </div>
+    </header>
+    <br>
+    <br>
     <form>
-        <div class="container">
-        <h1>Registrarse</h1>
-        <p>Logeate!</p>
-        <hr>
-
-        <label for="user"><b>Usuario</b></label>
-        <input type="text" placeholder="Usuario" name="nombreUsuario" id="nombreUsuario" required>
+        <div class="w3-container w3-card-4 w3-theme-d1 w3-round w3-content">
+            <form>
+                <div class="container">
+                <h2 class="w3-center w3-theme-d5 w3-round-xxlarge">Iniciar Sesión</h2>
+                
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-user"></i></div>
+                        <div class="w3-rest">
+                          <input class="w3-input w3-border w3-round-xxlarge"type="text" placeholder="Usuario" name="nombreUsuario" id="nombreUsuario" required>
+                        </div>
+                </div>
     
-        <label for="psw"><b>Contraseña</b></label>
-        <input type="password" placeholder="Contraseña" name="contrasenaUsuario" id="contrasenaUsuario" required>
-    
-        <button type="submit" id="submit" class="registerbtn">Registrarse</button>
+                <div class="w3-row w3-section">
+                    <div class="w3-col" style="width:50px"><i class="w3-xxlarge fa fa-lock"></i></div>
+                        <div class="w3-rest">
+                          <input class="w3-input w3-border w3-round-xxlarge" type="password" placeholder="Contraseña" name="contrasenaUsuario" id="contrasenaUsuario" required>
+                </div>
+                
+                <button class="w3-button w3-block w3-section w3-round-xxlarge w3-theme-d5 w3-ripple w3-padding"type="submit" id="submit" >Ingresar</button>
+                
+                
+            
+                
+            </form>
+            <form action="registroSesion.html">
+                <input class="w3-button w3-block w3-section w3-round-xxlarge w3-theme-d5 w3-ripple w3-padding" type="submit" value="No tengo cuenta" />
+            </form>
+            <script src="login.js"></script>
         </div>
-        
-    </form>
-    <script src="login.js"></script>
 </body>
 </html>
