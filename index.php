@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<?php
+session_start();
+$boton = "";
+if(empty($_SESSION['user_name'])){
+    $user = $_SESSION['user_name'];
+    $boton = "<a href=\"login.html\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Iniciar Sesion </a>";
+}else{
+    $boton = "<a href=\"MyAcc.php\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Mi Cuenta </a>";
+}
+
+?>
 <html>
 
 <head>
@@ -19,7 +30,7 @@
     <header class="w3-animate-top">
       
       <div class="w3-bar">
-        <a href="index.html" class="centrar w3-center w3-mobile" style="width:20%; height: 100%">
+        <a href="index.php" class="centrar w3-center w3-mobile" style="width:20%; height: 100%">
           <img src="img/LOGOMERENDOLA.png" class="w3-round" alt="logoMerendola" style="width:60%">
         </a>
       </div>
@@ -28,8 +39,7 @@
         <div class="w3-bar w3-row" >
             <a href="#" class="w3-bar-item w3-button w3-mobile w3-theme-d5 "style="width:25%;height: 39px;">Inicio</a>
             <a href="#" class=" w3-bar-item w3-button w3-mobile w3-theme-d5 " style="width:25%;height: 39px;">Nosotros</a>
-          
-            <a href="login.html" class="w3-bar-item w3-button w3-mobile w3-theme-d5 "style="width:25%;height: 39px;" >Ingresar</a>
+            <?php echo $boton;?>            
             <i class= " w3-padding  fa fa-search w3-bar-item w3-button w3-mobile w3-xlarge w3-theme-d2 "style="height: 39px; width: 5%;"></i>
             <form class="w3-mobile">
               <input class = " w3-input " type="search" style="width:20%; height: 39px; background-color: #957954; color:#ffffff">

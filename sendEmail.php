@@ -9,7 +9,7 @@ $message = '
 El último paso es la verificación de tu cuenta. Solo tenes que hacer click en el siguiente link:
 
  
-https://agssoft.ar/CUATRO/check.php?user='.$nombreUsuario.'&email='.$emailUsuario.'
+https://calligari.ar/LaMerendola/check.php?user='.$nombreUsuario.'&email='.$emailUsuario.'
  
 ';
                      

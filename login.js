@@ -18,11 +18,10 @@ $( document ).ready(function() {
                     // succesfuly logged in
                     window.location.replace("./index.php");
                 } else {
-                    if(json['error'] == "1") {
+                    if(json['error'] == "2") {
                         // Esta baneada o puso mal los datos
-                        console.log("1");
-                        alert("Datos incorrectos o cuenta baneada o cuenta no verificada");
-
+                        console.log("2");
+                        alert("No existe el usuario o contraseña");
                     }
                 }
             },
