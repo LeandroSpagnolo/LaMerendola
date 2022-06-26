@@ -5,7 +5,7 @@ session_start();
 
 $nombre=mysqli_real_escape_string($conn, $_POST['nombreUsuario']);
 $userPassword=mysqli_real_escape_string($conn, $_POST['contrasenaUsuario']);
-$userPassword = substr( $userPassword, 0, 60 );
+$userPass = hash("sha256", $userPassword);
 $sql = $conn->query("SELECT * FROM `credencialesUsuarios` WHERE nombre='".$nombre."' AND cuentaVerificada=1");
 
 if($row_cnt = $sql->num_rows == 1){
@@ -20,7 +20,7 @@ if($row_cnt = $sql->num_rows == 1){
         $conn->close();
         return 0;
     }
-    if($userPassword == $passhash){
+    if($userPass == $passhash){
         //login was successful
         $time = time();
         $ultimaVezActivo = date('Y-m-d H:i:s', $time);
@@ -30,7 +30,8 @@ if($row_cnt = $sql->num_rows == 1){
         echo json_encode(array('success' => true));
     } else {
         //incorrect password
-        echo json_encode(array('success' => false, 'error' => 1));
+
+        echo json_encode(array('success' => false, 'error' => "$userPass, \n$passhash"));
     }
     
 } else echo json_encode(array('success' => false, 'error' => 2));

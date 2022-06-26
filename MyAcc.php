@@ -4,7 +4,7 @@ session_start();
 $boton = "";
 if($_SESSION['user_name'] == 'admin')
 {
-    $boton = "<form action=\"admin.html\">
+    $boton = "<form action=\"admin.php\">
         <input class=\"w3-button w3-block w3-section w3-round-xxlarge w3-theme-d5 w3-ripple w3-padding\" type=\"submit\" value=\"Administrar Usuarios\">
 </form>";
 }
