@@ -1,5 +1,5 @@
 <?php
-include_once "connect.php";
+include_once "../db/connect.php";
 
 session_start();
 
@@ -31,7 +31,7 @@ if($row_cnt = $sql->num_rows == 1){
     } else {
         //incorrect password
 
-        echo json_encode(array('success' => false, 'error' => "$userPass, \n$passhash"));
+        echo json_encode(array('success' => false, 'error' => "contra incorrecta"));
     }
     
 } else echo json_encode(array('success' => false, 'error' => 2));

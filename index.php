@@ -4,9 +4,9 @@ session_start();
 $boton = "";
 if(empty($_SESSION['user_name'])){
     $user = $_SESSION['user_name'];
-    $boton = "<a href=\"login.html\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Iniciar Sesion </a>";
+    $boton = "<a href=\"login/login.html\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Iniciar Sesion </a>";
 }else{
-    $boton = "<a href=\"MyAcc.php\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Mi Cuenta </a>";
+    $boton = "<a href=\"administrarCuenta/MyAcc.php\"class=\"w3-bar-item w3-button w3-mobile w3-theme-d5\"style=\"width:25%;height:39px;\"> Mi Cuenta </a>";
 }
 
 ?>

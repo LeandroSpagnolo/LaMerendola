@@ -7,7 +7,7 @@ $( document ).ready(function() {
             method: "post",
             success: function() {
                 if(json['success'] == true) {
-                    window.location.replace("./index.php");
+                    window.location.replace("../index.php");
                     }
             },
             error: function(data) {

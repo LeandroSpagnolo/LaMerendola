@@ -16,7 +16,7 @@ $( document ).ready(function() {
                 let json = JSON.parse(data)
                 if(json['success'] == true) {
                     // succesfuly logged in
-                    window.location.replace("./index.php");
+                    window.location.replace("../index.php");
                 } else {
                     if(json['error'] == "2") {
                         // Esta baneada o puso mal los datos

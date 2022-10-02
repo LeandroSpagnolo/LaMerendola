@@ -1,6 +1,6 @@
 <?php
 
-include_once "connect.php";
+include_once "../db/connect.php";
 
 $nombreUsuario = mysqli_real_escape_string($conn, $_POST['nombreUsuario']);
 $emailUsuario = mysqli_real_escape_string($conn, $_POST['emailUsuario']);
